@@ -36,8 +36,8 @@ describe("Remote API", function() {
     var scope = nock('http://localhost:7001').post('/syncDefaults', defaultsData).reply(200);
 
     api.defaults(defaultsData).then(function() {
-      scope.done();
       done();
+      scope.done();
     });
   });
 
@@ -47,9 +47,10 @@ describe("Remote API", function() {
     var scope = nock('http://localhost:7001', { method: "POST", path: "/" }).get('/lastRequest').reply(204, lastRequestData);
 
     api.lastRequest("POST", "/").then(function(res) {
-      expect(res.body).to.deep.eq(lastRequestData);
-      scope.done();
       done();
+
+      expect(res).to.deep.eq(lastRequestData);
+      scope.done();
     });
   });
 
@@ -59,9 +60,9 @@ describe("Remote API", function() {
     var scope = nock('http://localhost:7001',  { method: 'POST', path: '/' }).get('/lastRequests').reply(204, lastRequestsData);
 
     api.lastRequests("POST", "/").then(function(res) {
-      expect(res.body).to.deep.eq(lastRequestsData);
-      scope.done();
       done();
+      expect(res).to.deep.eq(lastRequestsData);
+      scope.done();
     });
   });
 

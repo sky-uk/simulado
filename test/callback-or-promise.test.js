@@ -24,7 +24,7 @@ function createFailingSuperAgentAPI(error) {
   });
 }
 
-var success = "success";
+var success = { body: "success" };
 var error = new Error("ouch!");
 
 describe('callback-or-promise', function () {
@@ -38,7 +38,7 @@ describe('callback-or-promise', function () {
       callbackOrPromise(fn, callback);
 
       expect(fn).to.have.been.called();
-      expect(callback).to.have.been.called.with(null, success);
+      expect(callback).to.have.been.called.with(null, success.body);
     });
 
     it('calls the function then on failure calls callback with error', function () {
@@ -78,7 +78,7 @@ describe('callback-or-promise', function () {
 
       callbackOrPromise(fn).then(function(result) {
         expect(fn).to.have.been.called();
-        expect(result).to.eq(success);
+        expect(result).to.eq(success.body);
         done();
       });
 

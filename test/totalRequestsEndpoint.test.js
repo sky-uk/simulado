@@ -18,8 +18,9 @@ describe('Simulado totalRequests', function() {
           .set('method', 'GET')
           .set('path', '/myPath')
           .end(function(_, res) {
+            done();
+
             res.body.should.deep.equal({ total: 1 });
-            done()
           });
         });
       });
@@ -36,8 +37,8 @@ describe('Simulado totalRequests', function() {
               .set('method', 'GET')
               .set('path', '/myPath2')
               .end(function(_, res) {
+                done();
                 res.body.should.deep.equal({ total: 1 });
-                done()
               });
             });
           });
@@ -55,8 +56,8 @@ describe('Simulado totalRequests', function() {
             .set('method', 'GET')
             .set('path', '/path/*')
             .end(function(_, res) {
-              res.body.should.deep.equal({ total: 2 });
               done()
+              res.body.should.deep.equal({ total: 2 });
             });
           });
         });
@@ -72,8 +73,8 @@ describe('Simulado totalRequests', function() {
           .set('method', 'GET')
           .set('path', '/pathToReset')
           .end(function(_, res) {
-            res.body.should.deep.equal({ total: 0 });
             done()
+            res.body.should.deep.equal({ total: 0 });
           });
         });
       });
