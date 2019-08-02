@@ -1,3 +1,6 @@
+| Note: This package uses Simulado 2.6.1 which breaks with some newer packages. Try [skyglobal/simulado](https://github.com/skyglobal/simulado) |
+| --- |
+
 # Simulado
 A simple mockserver for testing with nodejs
 
