@@ -29,7 +29,7 @@
     "deep-equal": "^1.0.1",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
-    "ps-node": "0.0.4",
+    "ps-node": "0.1.6",
     "superagent": "1.6.1"
   },
   "keyboard": [
